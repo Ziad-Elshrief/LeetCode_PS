@@ -1,2 +1,3 @@
-# LeetCode_PS
-my solutions to some of LeetCode problems
+# LeetCode Solutions
+The solutions are organized depending on the language
+
