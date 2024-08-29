@@ -1,14 +1,16 @@
 class Solution {
 public:
-    int missingNumber(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
-        int result=nums.size();
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> Result{-1,-1};
         for(int i=0;i<nums.size();i++){
-            if(nums[i] != i){
-                result=i;
-                break;
+            for(int j=i+1;j<nums.size();j++){
+                if(nums[i]+nums[j]==target){
+                    Result[0]=i;
+                    Result[1]=j;
+                    break;
+                }
             }
         }
-        return result;
+        return Result;
     }
 };
