@@ -1,21 +1,19 @@
 class Solution {
 public:
     string reverseVowels(string s) {
-        string reversed(s.size(),' ');
-        int index=0;
-        stack<char>vowels;
-        for(auto chr:s){
-            if(isVowel(chr)){
-                vowels.push(chr);
+        vector<int>index;
+        string reversed(s);
+        char temp;
+        for(int i=0;i<s.size();i++){
+            if(isVowel(s[i])){
+                index.push_back(i);
             }
         }
-        for(auto chr:s){
-            if(isVowel(chr)){
-                reversed[index++]=vowels.top();
-                vowels.pop();
-            }else{
-                reversed[index++]=chr;
-            }
+        int index_end=index.size()-1;
+        for(int j=0;j<index.size()/2;j++){
+            temp=reversed[index[j]];
+            reversed[index[j]]=reversed[index[index_end-j]];
+            reversed[index[index_end-j]]=temp;
         }
         return reversed;
 
