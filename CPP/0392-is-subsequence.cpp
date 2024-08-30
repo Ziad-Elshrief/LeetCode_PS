@@ -2,7 +2,7 @@ class Solution {
 public:
     bool isSubsequence(string s, string t) {
         bool found=false;
-        int j=0;
+        int j;
         int first=0;
         bool next;
         if(s.empty()) return true;
