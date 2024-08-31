@@ -1,13 +1,16 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
-        for(int i=0;i<nums.size()-1;i+=2){
-            if(nums[i]!= nums[i+1]){
-                return nums[i]; 
-                break;
+        unordered_map<int,int> single;
+        long long int answer=0;
+        for(auto num:nums){
+            if(single[num]==0){
+                single[num]=1;
+                answer += num; 
+            }else{
+                answer -= num;
             }
         }
-        return nums[nums.size()-1];
+        return (int)answer;
     }
 };
